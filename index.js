@@ -20,7 +20,7 @@ app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
 
 app.use(cors({
-  origin: ['https://btc-q3zg.onrender.com', 'btc-q3zg.onrender.com/:1'], 
+  origin: ['https://gleeful-fairy-567193.netlify.app/', 'gleeful-fairy-567193.netlify.app/:1'], 
   credentials: true
 }));
 
