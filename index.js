@@ -24,10 +24,11 @@ app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
 //   credentials: true
 // }));
 
-app.use((req, res, next) => {
-       res.header('Access-Control-Allow-Origin', 'https://gleeful-fairy-567193.netlify.app'); // Allow only your Netlify app
-       res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allow specific HTTP methods
-       res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Allow specific headers
+ app.use((req, res, next) => {
+       res.header('Access-Control-Allow-Origin', 'https://gleeful-fairy-567193.netlify.app'); // Replace with your Netlify domain
+       res.header('Access-Control-Allow-Credentials', 'true');
+       res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allow the necessary HTTP methods
+       res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization'); // Allow necessary headers
        next();
      });
 
