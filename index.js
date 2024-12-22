@@ -19,10 +19,18 @@ app.use(cookieParser());
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
 
-app.use(cors({
-  origin: ['https://gleeful-fairy-567193.netlify.app/', 'gleeful-fairy-567193.netlify.app/:1'], 
-  credentials: true
-}));
+// app.use(cors({
+//   origin: ['https://gleeful-fairy-567193.netlify.app/', 'gleeful-fairy-567193.netlify.app/:1'], 
+//   credentials: true
+// }));
+
+app.use((req, res, next) => {
+       res.header('Access-Control-Allow-Origin', 'https://gleeful-fairy-567193.netlify.app'); // Allow only your Netlify app
+       res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allow specific HTTP methods
+       res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Allow specific headers
+       next();
+     });
+
 
 app.use('/api/blog', blogRouter);
 app.use('/api/comment', commentRouter);
